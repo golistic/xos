@@ -1,0 +1,14 @@
+xos:
+  - meta:
+      projectURL: https://github.com/golistic/xos
+      description: |
+        All notable changes to this project will be documented in this file.
+        Note: Using YAML is experimental, but since it is human readable, should be OK.
+  - versions:
+      - version: v1.1.0
+        date: 2023-01-19
+        added:
+          - Added InDockerContainer() returning whether app runs in container or not.
+      - version: v1.0.0
+        date: 2023-01-18
+        description: Initial release
