@@ -3,7 +3,6 @@
 package xos
 
 import (
-	"bytes"
 	"testing"
 
 	"github.com/golistic/xt"
@@ -11,6 +10,6 @@ import (
 
 func TestInDockerContainer(t *testing.T) {
 	// this works differently when in container or not
-	exp := bytes.Contains(linuxControlGroup(), []byte(":/docker/"))
+	exp := IsRegularFile("/.dockerenv")
 	xt.Eq(t, exp, InDockerContainer())
 }
