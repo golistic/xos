@@ -9,6 +9,11 @@ xos:
         date: 2023-01-19
         added:
           - Added InDockerContainer() returning whether app runs in container or not.
+        patches:
+          - version: v1.1.1
+            date: 2023-01-19
+            added:
+              - Fixed InDockerContainer() to use not only process control group for detection.
       - version: v1.0.0
         date: 2023-01-18
         description: Initial release
