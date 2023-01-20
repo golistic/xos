@@ -5,6 +5,10 @@ xos:
         All notable changes to this project will be documented in this file.
         Note: Using YAML is experimental, but since it is human readable, should be OK.
   - versions:
+      - version: v1.2.0
+        date: 2023-01-20
+        added:
+          - Added EnvironMap() and EnvironMapLookup() returning the environment variables as a map.
       - version: v1.1.0
         date: 2023-01-19
         added:
