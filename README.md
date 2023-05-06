@@ -1,7 +1,7 @@
 xos - Extra Operating System Functionality
 ==========================================
 
-Copyright (c) 2022, Geert JM Vanderkelen
+Copyright (c) 2022, 2023, Geert JM Vanderkelen
 
 Package `xos` extra functionality around the Go `os` package, which provides a 
 platform-independent interface to operating system functionality.
