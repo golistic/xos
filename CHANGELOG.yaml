@@ -5,6 +5,10 @@ xos:
         All notable changes to this project will be documented in this file.
         Note: Using YAML is experimental, but since it is human readable, should be OK.
   - versions:
+      - version: v1.3.0
+        date: 2023-05-06
+        added:
+          - add functions to checksum files using MD5/SHA1/SHA256
       - version: v1.2.0
         date: 2023-01-20
         added:
