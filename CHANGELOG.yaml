@@ -5,6 +5,10 @@ xos:
         All notable changes to this project will be documented in this file.
         Note: Using YAML is experimental, but since it is human readable, should be OK.
   - versions:
+      - version: v1.4.0
+        date: 2023-07-20
+        added:
+          - add function to retrieve all regular filenames in path recursively `xos.AllFilenamesInDir`
       - version: v1.3.0
         date: 2023-05-06
         added:
