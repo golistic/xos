@@ -3,9 +3,11 @@
 package xos
 
 import (
+	"io/fs"
 	"os"
 	"path/filepath"
 	"sort"
+	"strings"
 )
 
 // IsDir returns whether path is a directory.
@@ -50,7 +52,8 @@ func RegularFilesInDirWithFullPath(path string) ([]string, error) {
 	return absFiles, nil
 }
 
-// FilesInDir returns file which are not directories found in directory path.
+// FilesInDir returns files which are not directories found in directory path.
+// The result is alphabetically sorted.
 func FilesInDir(path string) ([]string, error) {
 	entries, err := os.ReadDir(path)
 	if err != nil {
@@ -67,4 +70,31 @@ func FilesInDir(path string) ([]string, error) {
 
 	sort.Strings(l)
 	return l, nil
+}
+
+// AllFilenamesInDir returns files which are not directories recursively
+// found in directory path.
+// The result is alphabetically sorted.
+func AllFilenamesInDir(root string) ([]string, error) {
+	var result []string
+
+	err := filepath.WalkDir(root, func(path string, info fs.DirEntry, err error) error {
+		if err != nil {
+			return err
+		}
+
+		if !info.IsDir() {
+			result = append(result, strings.TrimPrefix(strings.TrimPrefix(path, root), "/"))
+		}
+
+		return nil
+	})
+
+	if err != nil {
+		return nil, err
+	}
+
+	sort.Strings(result)
+
+	return result, nil
 }

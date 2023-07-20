@@ -63,3 +63,22 @@ func TestRegularFilesInDirWithFullPath(t *testing.T) {
 		xt.Eq(t, exp, files)
 	})
 }
+
+func TestAllFilenamesInDir(t *testing.T) {
+	dir := filepath.Join("_testdata", "files_in_dir")
+
+	have, err := AllFilenamesInDir(dir)
+	xt.OK(t, err)
+
+	exp := []string{
+		".gitignore",
+		"01_file.txt",
+		"create_sym_link.sh",
+		"fileA.md",
+		"subfolder/file_in_subfolder.txt",
+		"symlink.md",
+		"zzz_bed.txt",
+	}
+
+	xt.Eq(t, exp, have)
+}
